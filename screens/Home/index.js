@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function Home({ navigation }) {
   return (
-    <View style={estilos.container}>
+    <ScrollView contentContainerStyle={estilos.container}>
 
       <View style={estilos.cabecalhoLinha}>
         <TouchableOpacity onPress={() => navigation.navigate('LandingPage')}>
@@ -16,7 +16,6 @@ export default function Home({ navigation }) {
           />
         </TouchableOpacity>
         <Text style={estilos.titulo}>Meu Lattes</Text>
-        
       </View>
 
       <TouchableOpacity
@@ -54,25 +53,33 @@ export default function Home({ navigation }) {
         <Text style={estilos.textoBotao}>Ir para Links</Text>
       </TouchableOpacity>
 
-    </View>
+      {/*<TouchableOpacity
+        style={estilos.botao}
+        onPress={() => navigation.navigate('ProducoesAcademicas')}
+      >
+        <Text style={estilos.textoBotao}>Ir para Produções Acadêmicas</Text>
+      </TouchableOpacity>*/}
+
+    </ScrollView>
   );
 }
 
 const estilos = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     backgroundColor: '#0D0A14',
     alignItems: 'center',
     justifyContent: 'center',
     gap: 15,
+    paddingVertical: 40,
   },
   cabecalhoLinha: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 20, 
+    marginBottom: 20,
   },
   icone: {
-    marginRight: 15, // 
+    marginRight: 15,
   },
   titulo: {
     color: '#F0A500',
@@ -88,7 +95,7 @@ const estilos = StyleSheet.create({
     paddingHorizontal: 30,
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: '#7C5CBF', // Borda do botão roxa
+    borderColor: '#7C5CBF',
     width: '80%',
     alignItems: 'center',
   },
